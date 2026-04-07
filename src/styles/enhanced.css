@@ -1,0 +1,185 @@
+/* src/styles/enhanced.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #141414;
+  --accent: #ffffff;
+  --accent-muted: rgba(255, 255, 255, 0.4);
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --radius-pro: 12px;
+  --easing: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Elite Typography */
+.text-balance {
+  text-wrap: balance;
+}
+
+.tracking-tighter-pro {
+  letter-spacing: -0.05em;
+}
+
+/* Premium Containers */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-pro);
+  transition: background 0.2s var(--easing), border 0.2s var(--easing);
+}
+
+.glass-panel:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Responsive Navigation Bar */
+.nav-glass {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Snappy Interactions */
+.btn-elite {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  transition: transform 0.2s var(--easing), opacity 0.2s var(--easing), background 0.2s var(--easing);
+  min-height: 44px; /* Mobile first accessibility */
+}
+
+.btn-elite:active {
+  transform: scale(0.96);
+}
+
+.btn-elite-primary {
+  background: var(--accent);
+  color: #000;
+}
+
+.btn-elite-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile-First Grid System */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Elite Reveal Animations (Lightweight) */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-fade {
+  animation: reveal-up 0.5s var(--easing) forwards;
+}
+
+/* Scroll Indicators */
+.scroll-indicator-elite {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.4;
+}
+
+/* Custom Scrollbar (Subtle) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Photo Reveal Effect */
+.photo-reveal-container {
+  overflow: hidden;
+  border-radius: var(--radius-pro);
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.photo-reveal-img {
+  filter: grayscale(100%);
+  transition: filter 0.5s var(--easing), transform 0.5s var(--easing);
+  object-fit: cover;
+}
+
+.group:hover .photo-reveal-img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.aspect-portrait-pro {
+  aspect-ratio: 4/5;
+}
+
+/* Remove Cinematic leftovers */
+.cursor-hidden {
+  cursor: default !important;
+}
+
+html {
+  cursor: auto !important;
+}
+
