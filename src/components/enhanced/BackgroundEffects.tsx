@@ -3,17 +3,20 @@ import { motion } from 'framer-motion'
 export const BackgroundEffects = () => {
   return (
     <div className="fixed inset-0 pointer-events-none z-0">
-      <div className="noise-bg" />
+      {/* Noise texture */}
+      <div className="absolute inset-0 opacity-[0.015]" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+      }} />
       
-      {/* Moving gradients for futuristic feel */}
+      {/* Moving gradients */}
       <motion.div 
         animate={{
           x: [0, 50, 0],
           y: [0, 30, 0],
           scale: [1, 1.1, 1]
         }}
-        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[-10%] left-[-5%] w-[60%] h-[60%] bg-blue-500/10 rounded-full blur-[120px]"
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        className="absolute top-[-10%] left-[-5%] w-[50%] h-[50%] bg-white/[0.015] rounded-full blur-[120px]"
       />
       <motion.div 
         animate={{
@@ -21,12 +24,9 @@ export const BackgroundEffects = () => {
           y: [0, 60, 0],
           scale: [1, 1.2, 1]
         }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-[-10%] right-[-5%] w-[60%] h-[60%] bg-purple-500/10 rounded-full blur-[120px]"
+        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        className="absolute bottom-[-10%] right-[-5%] w-[50%] h-[50%] bg-white/[0.015] rounded-full blur-[120px]"
       />
-      
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(100,255,218,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(100,255,218,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
     </div>
   )
 }

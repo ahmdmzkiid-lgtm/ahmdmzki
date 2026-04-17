@@ -6,9 +6,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ========================================
+   CSS CUSTOM PROPERTIES
+   ======================================== */
 :root {
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #141414;
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
   --accent: #ffffff;
   --accent-muted: rgba(255, 255, 255, 0.4);
   --text-primary: #ffffff;
@@ -17,9 +20,14 @@
   --easing: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* ========================================
+   GLOBAL RESETS & BASE
+   ======================================== */
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: auto !important;
 }
 
 body {
@@ -27,9 +35,19 @@ body {
   color: var(--text-primary);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Elite Typography */
+/* Prevent overscroll bounce on mobile */
+@supports (-webkit-touch-callout: none) {
+  body {
+    overscroll-behavior-y: none;
+  }
+}
+
+/* ========================================
+   TYPOGRAPHY UTILITIES
+   ======================================== */
 .text-balance {
   text-wrap: balance;
 }
@@ -38,48 +56,76 @@ body {
   letter-spacing: -0.05em;
 }
 
-/* Premium Containers */
+/* ========================================
+   GLASS PANELS
+   ======================================== */
 .glass-panel {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-pro);
-  transition: background 0.2s var(--easing), border 0.2s var(--easing);
+  transition: 
+    background 0.3s var(--easing), 
+    border-color 0.3s var(--easing),
+    transform 0.2s var(--easing),
+    box-shadow 0.3s var(--easing);
 }
 
 .glass-panel:hover {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
-/* Responsive Navigation Bar */
+/* ========================================
+   NAVIGATION
+   ======================================== */
 .nav-glass {
-  background: rgba(10, 10, 10, 0.7);
+  background: rgba(0, 0, 0, 0.75);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* Snappy Interactions */
+/* ========================================
+   BUTTONS - Touch-Optimized (min 44px)
+   ======================================== */
 .btn-elite {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.75rem 1.5rem;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 0.875rem;
   border-radius: 9999px;
-  transition: transform 0.2s var(--easing), opacity 0.2s var(--easing), background 0.2s var(--easing);
-  min-height: 44px; /* Mobile first accessibility */
+  transition: 
+    transform 0.2s var(--easing), 
+    opacity 0.2s var(--easing), 
+    background 0.2s var(--easing),
+    box-shadow 0.3s var(--easing);
+  min-height: 44px;
+  min-width: 44px;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+.btn-elite:hover {
+  transform: translateY(-1px);
 }
 
 .btn-elite:active {
-  transform: scale(0.96);
+  transform: scale(0.97) translateY(0);
 }
 
 .btn-elite-primary {
   background: var(--accent);
   color: #000;
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+}
+
+.btn-elite-primary:hover {
+  box-shadow: 0 8px 30px -8px rgba(255, 255, 255, 0.15);
 }
 
 .btn-elite-secondary {
@@ -88,7 +134,14 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Mobile-First Grid System */
+.btn-elite-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ========================================
+   RESPONSIVE GRID - 1 / 2 / 3 columns
+   ======================================== */
 .responsive-grid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -108,7 +161,9 @@ body {
   }
 }
 
-/* Elite Reveal Animations (Lightweight) */
+/* ========================================
+   ANIMATIONS
+   ======================================== */
 @keyframes reveal-up {
   from {
     opacity: 0;
@@ -124,34 +179,23 @@ body {
   animation: reveal-up 0.5s var(--easing) forwards;
 }
 
-/* Scroll Indicators */
-.scroll-indicator-elite {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0.4;
+/* Skeleton loading shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
-/* Custom Scrollbar (Subtle) */
-::-webkit-scrollbar {
-  width: 6px;
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Photo Reveal Effect */
+/* ========================================
+   PHOTO REVEAL EFFECT
+   ======================================== */
 .photo-reveal-container {
   overflow: hidden;
   border-radius: var(--radius-pro);
@@ -161,7 +205,7 @@ body {
 
 .photo-reveal-img {
   filter: grayscale(100%);
-  transition: filter 0.5s var(--easing), transform 0.5s var(--easing);
+  transition: filter 0.6s var(--easing), transform 0.6s var(--easing);
   object-fit: cover;
 }
 
@@ -170,16 +214,98 @@ body {
   transform: scale(1.05);
 }
 
+/* Mobile: show color by default */
+@media (hover: none) {
+  .photo-reveal-img {
+    filter: grayscale(0%);
+  }
+}
+
 .aspect-portrait-pro {
   aspect-ratio: 4/5;
 }
 
-/* Remove Cinematic leftovers */
-.cursor-hidden {
-  cursor: default !important;
+/* ========================================
+   SCROLLBAR (Subtle)
+   ======================================== */
+::-webkit-scrollbar {
+  width: 4px;
 }
 
-html {
-  cursor: auto !important;
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
 }
 
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.08) transparent;
+}
+
+/* ========================================
+   FOCUS STATES (Accessibility)
+   ======================================== */
+*:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ========================================
+   SCROLL INDICATORS
+   ======================================== */
+.scroll-indicator-elite {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.4;
+}
+
+/* ========================================
+   TOUCH DEVICE OPTIMIZATIONS
+   ======================================== */
+@media (hover: none) and (pointer: coarse) {
+  /* Disable hover-dependent effects on touch */
+  .glass-panel:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  
+  /* Ensure buttons have enough padding for touch */
+  .btn-elite {
+    min-height: 48px;
+    padding: 0.875rem 1.75rem;
+  }
+  
+  /* Disable tilt/3D effects that consume battery */
+  .tilt-disabled {
+    transform: none !important;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION PREFERENCE
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

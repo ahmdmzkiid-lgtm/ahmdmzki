@@ -13,14 +13,20 @@ export const Contact = () => {
     setTimeout(() => setCopied(false), 2000)
   }
 
+  const socialLinks = [
+    { Icon: FaGithub, href: 'https://github.com/ahmdmzkiid-lgtm', label: 'GitHub' },
+    { Icon: FaLinkedin, href: 'https://www.linkedin.com/in/ahmad-muzaki-3863813ba?utm_source=share_via&utm_content=profile&utm_medium=member_android', label: 'LinkedIn' },
+    { Icon: FaInstagram, href: 'https://www.instagram.com/ahmdmzki12?igsh=dGp6M2g2d2M2anky', label: 'Instagram' }
+  ]
+
   return (
-    <section id="contact" className="py-32 bg-black px-6">
+    <section id="contact" className="py-20 md:py-32 bg-black px-6">
       <div className="max-w-[1200px] mx-auto">
-        <div className="grid lg:grid-cols-2 gap-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="flex items-center gap-2 mb-6">
@@ -34,7 +40,7 @@ export const Contact = () => {
               <span className="text-zinc-500">Kolaborasi Baru?</span>
             </h3>
             
-            <p className="text-zinc-400 text-lg leading-relaxed max-w-sm mb-12">
+            <p className="text-zinc-400 text-base md:text-lg leading-relaxed max-w-sm mb-12">
               Jangan ragu untuk menyapa. Saya selalu antusias mendiskusikan ide-ide kreatif dan tantangan teknis baru.
             </p>
 
@@ -43,15 +49,20 @@ export const Contact = () => {
                 <span className="text-[10px] font-medium uppercase tracking-widest text-zinc-500">Lokasi</span>
                 <span className="text-xl font-medium text-white">Depok, Indonesia</span>
               </div>
-              <div className="flex gap-6 pt-4">
-                {[
-                  { Icon: FaGithub, href: 'https://github.com/ahmdmzkiid-lgtm', label: 'GitHub' },
-                  { Icon: FaLinkedin, href: 'https://www.linkedin.com/in/ahmad-muzaki-3863813ba?utm_source=share_via&utm_content=profile&utm_medium=member_android', label: 'LinkedIn' },
-                  { Icon: FaInstagram, href: 'https://www.instagram.com/ahmdmzki12?igsh=dGp6M2g2d2M2anky', label: 'Instagram' }
-                ].map(({ Icon, href, label }, i) => (
-                  <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white transition-colors" aria-label={label}>
-                    <Icon className="w-6 h-6" />
-                  </a>
+              <div className="flex gap-4 pt-4">
+                {socialLinks.map(({ Icon, href, label }, i) => (
+                  <motion.a
+                    key={i}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 transition-all"
+                    aria-label={label}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </motion.a>
                 ))}
               </div>
             </div>
@@ -59,22 +70,28 @@ export const Contact = () => {
 
           <div className="space-y-4">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, delay: 0.2 }}
               onClick={copyToClipboard}
-              className="glass-panel p-8 cursor-pointer group hover:bg-white/[0.03] transition-all"
+              className="glass-panel p-6 md:p-8 cursor-pointer group hover:bg-white/[0.03] transition-all active:scale-[0.98] min-h-[44px]"
             >
               <div className="flex justify-between items-start mb-6">
                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-all">
                   <Mail className="w-5 h-5" />
                 </div>
-                {copied ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5 text-zinc-500" />}
+                <motion.div
+                  initial={false}
+                  animate={copied ? { scale: [1, 1.3, 1] } : {}}
+                  transition={{ duration: 0.3 }}
+                >
+                  {copied ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5 text-zinc-500" />}
+                </motion.div>
               </div>
               <h4 className="text-sm font-medium uppercase tracking-widest text-zinc-500 mb-2">Email Utama</h4>
-              <p className="text-2xl font-bold text-white tracking-tight">{email}</p>
-              <p className="text-[10px] text-zinc-500 mt-4 uppercase tracking-[0.2em]">{copied ? 'Copied to Clipboard!' : 'Click to Copy'}</p>
+              <p className="text-xl md:text-2xl font-bold text-white tracking-tight break-all">{email}</p>
+              <p className="text-[10px] text-zinc-500 mt-4 uppercase tracking-[0.2em]">{copied ? '✓ Copied to Clipboard!' : 'Click to Copy'}</p>
             </motion.div>
 
             <div className="grid grid-cols-2 gap-4">
@@ -82,13 +99,14 @@ export const Contact = () => {
                 href="https://wa.me/6285780171571"
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="glass-panel p-6 hover:bg-[#25D366]/10 transition-all group"
+                className="glass-panel p-5 md:p-6 hover:bg-[#25D366]/10 transition-all group active:scale-[0.98] min-h-[44px]"
+                whileTap={{ scale: 0.97 }}
               >
-                <FaWhatsapp className="w-8 h-8 text-zinc-500 group-hover:text-[#25D366] mb-4 transition-colors" />
+                <FaWhatsapp className="w-7 h-7 md:w-8 md:h-8 text-zinc-500 group-hover:text-[#25D366] mb-4 transition-colors" />
                 <h4 className="text-sm font-bold text-white uppercase tracking-tighter">WhatsApp</h4>
                 <div className="flex items-center gap-1 text-[10px] text-zinc-500 uppercase tracking-widest mt-2 group-hover:text-white">
                   Fast Reply <ExternalLink className="w-3 h-3" />
@@ -99,13 +117,14 @@ export const Contact = () => {
                 href="https://www.linkedin.com/in/ahmad-muzaki-3863813ba?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="glass-panel p-6 hover:bg-[#0077b5]/10 transition-all group"
+                className="glass-panel p-5 md:p-6 hover:bg-[#0077b5]/10 transition-all group active:scale-[0.98] min-h-[44px]"
+                whileTap={{ scale: 0.97 }}
               >
-                <FaLinkedin className="w-8 h-8 text-zinc-500 group-hover:text-[#0077b5] mb-4 transition-colors" />
+                <FaLinkedin className="w-7 h-7 md:w-8 md:h-8 text-zinc-500 group-hover:text-[#0077b5] mb-4 transition-colors" />
                 <h4 className="text-sm font-bold text-white uppercase tracking-tighter">LinkedIn</h4>
                 <div className="flex items-center gap-1 text-[10px] text-zinc-500 uppercase tracking-widest mt-2 group-hover:text-white">
                   Connect <ExternalLink className="w-3 h-3" />
@@ -118,5 +137,3 @@ export const Contact = () => {
     </section>
   )
 }
-
-

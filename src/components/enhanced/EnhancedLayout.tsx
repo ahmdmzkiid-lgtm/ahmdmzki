@@ -1,25 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BackgroundEffects } from './BackgroundEffects'
-import { CustomCursor } from './CustomCursor'
 import { Preloader } from './Preloader'
 import { AnimatePresence } from 'framer-motion'
 
 export const EnhancedLayout = ({ children }: { children: React.ReactNode }) => {
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoaded(true), 2000)
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
-    <div className="relative min-h-screen bg-[#0A192F] text-[#ccd6f6] selection:bg-cyan-400 selection:text-navy-900">
+    <div className="relative min-h-screen bg-black text-white selection:bg-white selection:text-black">
       <AnimatePresence>
-        <Preloader key="preloader" />
+        {!loaded && <Preloader key="preloader" />}
       </AnimatePresence>
       
-      <CustomCursor />
       <BackgroundEffects />
       
-      <main className="relative z-10 transition-opacity duration-1000">
+      <div className={`relative z-10 transition-opacity duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}>
         {children}
-      </main>
-      
-      {/* Global Glow Overlay for futuristic feel */}
-      <div className="fixed inset-0 pointer-events-none z-[100] shadow-[inset_0_0_100px_rgba(100,255,218,0.02)]" />
+      </div>
     </div>
   )
 }
