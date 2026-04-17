@@ -234,7 +234,7 @@ export const Projects = () => {
   const isTouch = useIsTouchDevice()
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1200)
+    const timer = setTimeout(() => setIsLoading(false), 500)
     return () => clearTimeout(timer)
   }, [])
 
@@ -253,7 +253,7 @@ export const Projects = () => {
       title: 'Prediksi Skor aman SNBT/UTBK',
       category: 'Web Application',
       description: 'Prediksi Skor aman SNBT/UTBK dengan modern UI/UX design, Dengan menggunakan metode machine learning untuk memprediksi skor aman SNBT/UTBK.',
-      image: '/image/snbt-predictor.png',
+      image: '/image/snbt-predictor.webp',
       tech: ['React', 'TypeScript', 'Tailwind', 'Vite', 'PostgreSQL'],
       github: 'https://github.com/ahmdmzkiid-lgtm',
       live: 'https://ahmdmzki.my.id',

@@ -13,7 +13,7 @@ export const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 2.0, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
             className="mb-8"
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium tracking-[0.15em] uppercase bg-white/5 border border-white/10 rounded-full text-zinc-400 backdrop-blur-sm">
@@ -26,7 +26,7 @@ export const Hero = () => {
             <motion.h1 
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 2.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="text-6xl sm:text-8xl md:text-9xl font-bold tracking-tighter-pro text-white leading-[0.9] text-balance"
             >
               Ahmad <br />
@@ -37,7 +37,7 @@ export const Hero = () => {
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.4, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
             className="text-base sm:text-lg md:text-xl text-zinc-400 mb-12 max-w-2xl mx-auto font-normal leading-relaxed text-balance"
           >
             Membangun produk digital yang <span className="text-white font-medium">cepat</span>, <span className="text-white font-medium">elegan</span>, dan <span className="text-white font-medium">berdampak tinggi</span>. Fokus pada performa dan keindahan minimalis.
@@ -46,7 +46,7 @@ export const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, delay: 1.6, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto"
           >
             <button
@@ -72,7 +72,7 @@ export const Hero = () => {
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.3 }}
-        transition={{ delay: 3, duration: 1 }}
+        transition={{ delay: 2, duration: 1 }}
         className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
       >
         <motion.div

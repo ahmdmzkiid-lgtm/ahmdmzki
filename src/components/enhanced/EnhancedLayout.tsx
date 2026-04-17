@@ -7,7 +7,7 @@ export const EnhancedLayout = ({ children }: { children: React.ReactNode }) => {
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoaded(true), 2000)
+    const timer = setTimeout(() => setLoaded(true), 1000)
     return () => clearTimeout(timer)
   }, [])
 

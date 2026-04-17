@@ -100,7 +100,7 @@ export const Navbar = () => {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.6, delay: 1.8, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.6, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${
           scrolled
             ? 'nav-glass py-3 md:py-4'
