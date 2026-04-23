@@ -243,7 +243,7 @@ export const Projects = () => {
       title: 'SNBT Tracker (jugijagijug0)',
       category: 'Web Application',
       description: 'Asisten tempur pejuang PTN. Lacak progres belajar, analisis skor try-out, dan temukan kelemahan belajar dalam satu platform terintegrasi.',
-      image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800',
+      image: '/image/snbt-tracker.png',
       tech: ['React', 'Vite', 'Tailwind', 'PostgreSQL'],
       github: 'https://github.com/ahmdmzkiid-lgtm',
       live: 'https://snbt-tracker.vercel.app',
@@ -253,23 +253,31 @@ export const Projects = () => {
       title: 'Prediksi Skor aman SNBT/UTBK',
       category: 'Web Application',
       description: 'Prediksi Skor aman SNBT/UTBK dengan modern UI/UX design, Dengan menggunakan metode machine learning untuk memprediksi skor aman SNBT/UTBK.',
-      image: '/image/snbt-predictor.webp',
+      image: '/image/prediksi-skor.png',
       tech: ['React', 'TypeScript', 'Tailwind', 'Vite', 'PostgreSQL'],
       github: 'https://github.com/ahmdmzkiid-lgtm',
       live: 'https://ahmdmzki.my.id',
       isCompleted: true
     },
     {
-      title: 'Project Beta',
-      description: 'Tahap pengembangan.',
-      tech: ['React', 'Tailwind'],
-      isCompleted: false
+      title: 'Presensi Kantor Berbasis Foto GPS',
+      category: 'Web Application',
+      description: 'Sistem absensi karyawan berbasis web dengan validasi foto dan lokasi GPS untuk memastikan kehadiran yang akurat, lengkap dengan dashboard monitoring admin.',
+      image: '/image/presensi-kantor.png',
+      tech: ['React', 'Vite', 'Tailwind', 'Node.js', 'PostgreSQL', 'Prisma'],
+      github: 'https://github.com/ahmdmzkiid-lgtm',
+      live: 'https://presensikantor-seven.vercel.app/admin/users',
+      isCompleted: true
     },
     {
-       title: 'Project Gamma',
-       description: 'Tahap pengembangan.',
-       tech: ['Tailwind', 'React'],
-       isCompleted: false
+      title: 'Wedding Invitation',
+      category: 'Web Application',
+      description: 'Undangan pernikahan digital interaktif yang elegan dengan fitur RSVP, integrasi peta lokasi, galeri foto, dan musik latar untuk memberikan kesan spesial bagi tamu.',
+      image: '/image/wedding-invitation.png',
+      tech: ['React', 'Vite', 'Tailwind', 'Framer Motion', 'Firebase'],
+      github: 'https://github.com/ahmdmzkiid-lgtm',
+      live: 'https://weddinginv-5bafd.web.app/',
+      isCompleted: true
     }
   ]
 
