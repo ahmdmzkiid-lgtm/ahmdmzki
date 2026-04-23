@@ -7,20 +7,8 @@ export const Experience = () => {
       role: 'Junior Front-End Developer',
       company: 'Independent',
       period: '2024 — 2025',
-      description: 'Memimpin tim front-end dalam membangun dashboard tingkat perusahaan. Fokus pada optimalisasi performa dan skalabilitas arsitektur.'
+      description: 'Merancang Appflow dan Features, Serta mengembangkan website yang responsive.'
     },
-    {
-      role: 'Front-End Developer',
-      company: 'Independent',
-      period: '2024 — 2026',
-      description: 'Mengembangkan antarmuka pengguna yang presisi untuk berbagai klien startup teknologi.'
-    },
-    {
-      role: 'Junior Web Developer',
-      company: 'Independent',
-      period: '2025 — 2026',
-      description: 'Berkolaborasi dalam pengembangan fitur inti dan integrasi sistem backend.'
-    }
   ]
 
   return (
