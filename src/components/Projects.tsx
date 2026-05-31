@@ -240,43 +240,23 @@ export const Projects = () => {
 
   const projects = [
     {
-      title: 'SNBT Tracker (jugijagijug0)',
+      title: 'Iuran Warga',
       category: 'Web Application',
-      description: 'Asisten tempur pejuang PTN. Lacak progres belajar, analisis skor try-out, dan temukan kelemahan belajar dalam satu platform terintegrasi.',
-      image: '/image/snbt-tracker.png',
-      tech: ['React', 'Vite', 'Tailwind', 'PostgreSQL'],
-      github: 'https://github.com/ahmdmzkiid-lgtm',
-      live: 'https://snbt-tracker.vercel.app',
+      description: 'Sistem pembayaran dan pelacakan iuran warga RT 03 dengan fitur manajemen komunitas untuk meningkatkan transparansi dan efisiensi pengelolaan keuangan lingkungan.',
+      image: '/image/iuranwarga.png',
+      tech: ['React', 'Node.js', 'Tailwind', 'PostgreSQL'],
+      github: 'https://github.com/ahmdmzkiid-lgtm/iuranmakamrt03',
+      live: 'https://iuranrto3-limo.vercel.app',
       isCompleted: true
     },
     {
-      title: 'Prediksi Skor aman SNBT/UTBK',
+      title: 'Eduzet',
       category: 'Web Application',
-      description: 'Prediksi Skor aman SNBT/UTBK dengan modern UI/UX design, Dengan menggunakan metode machine learning untuk memprediksi skor aman SNBT/UTBK.',
-      image: '/image/prediksi-skor.png',
-      tech: ['React', 'TypeScript', 'Tailwind', 'Vite', 'PostgreSQL'],
-      github: 'https://github.com/ahmdmzkiid-lgtm',
-      live: 'https://ahmdmzki.my.id',
-      isCompleted: true
-    },
-    {
-      title: 'Presensi Kantor Berbasis Foto GPS',
-      category: 'Web Application',
-      description: 'Sistem absensi karyawan berbasis web dengan validasi foto dan lokasi GPS untuk memastikan kehadiran yang akurat, lengkap dengan dashboard monitoring admin.',
-      image: '/image/presensi-kantor.png',
-      tech: ['React', 'Vite', 'Tailwind', 'Node.js', 'PostgreSQL', 'Prisma'],
-      github: 'https://github.com/ahmdmzkiid-lgtm',
-      live: 'https://presensikantor-seven.vercel.app/admin/users',
-      isCompleted: true
-    },
-    {
-      title: 'Wedding Invitation',
-      category: 'Web Application',
-      description: 'Undangan pernikahan digital interaktif yang elegan dengan fitur RSVP, integrasi peta lokasi, galeri foto, dan musik latar untuk memberikan kesan spesial bagi tamu.',
-      image: '/image/wedding-invitation.png',
-      tech: ['React', 'Vite', 'Tailwind', 'Framer Motion', 'Firebase'],
-      github: 'https://github.com/ahmdmzkiid-lgtm',
-      live: 'https://weddinginv-5bafd.web.app/',
+      description: 'Platform edutech lengkap untuk persiapan UTBK, SNBT, dan ujian masuk perguruan tinggi dengan fitur pembelajaran interaktif, bank soal, try-out, dan analisis hasil belajar.',
+      image: '/image/eduzet.png',
+      tech: ['React', 'Node.js', 'Tailwind', 'PostgreSQL'],
+      github: 'https://github.com/ahmdmzkiid-lgtm/eduzet',
+      live: 'https://eduzet.my.id',
       isCompleted: true
     }
   ]
@@ -299,8 +279,8 @@ export const Projects = () => {
 
         {/* Loading Skeleton */}
         {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {[0, 1, 2, 3].map((i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+            {[0, 1].map((i) => (
               <ProjectSkeleton key={i} />
             ))}
           </div>
@@ -316,7 +296,7 @@ export const Projects = () => {
             ) : null}
 
             {/* Desktop/Tablet: Tilt effect cards */}
-            <div className={`${isTouch ? 'hidden md:grid' : 'grid'} grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8`}>
+            <div className={`${isTouch ? 'hidden md:grid' : 'grid'} grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto`}>
               {projects.map((project, i) => (
                 <TiltCard key={project.title} className="group flex flex-col">
                   <motion.div
