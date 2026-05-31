@@ -252,7 +252,7 @@ export const Projects = () => {
     {
       title: 'Eduzet',
       category: 'Web Application',
-      description: 'Platform edutech lengkap untuk persiapan UTBK, SNBT, dan ujian masuk perguruan tinggi dengan fitur pembelajaran interaktif, bank soal, try-out, dan analisis hasil belajar.',
+      description: 'Perjalanan digital dalam membangun platform edutech untuk persiapan UTBK, SNBT, dan ujian mandiri perguruan tinggi. Dilengkapi fitur pembelajaran interaktif, bank soal komprehensif, try-out adaptif, dan analisis mendalam untuk mengakselerasi proses belajar menuju kampus impian.',
       image: '/image/eduzet.png',
       tech: ['React', 'Node.js', 'Tailwind', 'PostgreSQL'],
       github: 'https://github.com/ahmdmzkiid-lgtm/eduzet',

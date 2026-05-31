@@ -4,11 +4,11 @@ import { Briefcase } from 'lucide-react'
 export const Experience = () => {
   const experiences = [
     {
-      role: 'Junior Front-End Developer',
-      company: 'Independent',
-      period: '2024 — 2025',
-      description: 'Merancang Appflow dan Features, Serta mengembangkan website yang responsive.'
-    },
+      role: 'Fullstack Developer',
+      company: 'Eduzet',
+      period: '2026',
+      description: 'Membangun dan mengembangkan platform edutech untuk persiapan UTBK, SNBT, dan ujian mandiri. Bertanggung jawab atas pengembangan fitur fullstack dari frontend hingga backend, termasuk sistem pembelajaran interaktif, bank soal adaptif, dan analisis hasil belajar untuk membantu siswa mencapai kampus impian.'
+    }
   ]
 
   return (

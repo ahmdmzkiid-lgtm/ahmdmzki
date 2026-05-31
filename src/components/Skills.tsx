@@ -11,8 +11,8 @@ export const Skills = () => {
       icon: GraduationCap,
     },
     {
-      degree: 'Sertifikasi FRONTEND DEV',
-      school: 'Dicoding Indonesia',
+      degree: 'FULLSTACK DEVELOPER',
+      school: 'Dicoding',
       period: '2025',
       description: 'Spesialisasi dalam desain sistem dan aksesibilitas produk digital.',
       icon: GraduationCap,
